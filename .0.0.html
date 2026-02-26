@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trading Pro Dashboard - Updated Layout</title>
+
+<style>
+:root{
+ --bg:#0e1117;--card:#161b22;--accent:#00eaff;--text:#e6edf3;--muted:#8b949e;
+}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma; line-height: 1.6;}
+.container{max-width:1200px;margin:auto;padding:20px;}
+h1{color:var(--accent);margin:0 0 15px; text-align: center;}
+.grid{display:grid;grid-template-columns:1fr 2fr;gap:20px;}
+.card{background:var(--card);border-radius:16px;padding:20px;box-shadow:0 10px 25px rgba(0,0,0,.4); display: flex; flex-direction: column; gap: 10px;}
+label{font-size:13px;color:var(--muted);margin-bottom: -5px;}
+input, select{width:100%;padding:10px;border-radius:10px;border:1px solid var(--accent);background:#0b0f14;color:var(--text);box-sizing: border-box; outline: none;}
+button{padding:12px;border:none;border-radius:12px;width:100%;background:linear-gradient(135deg,#00eaff,#0077ff);font-size:16px;font-weight: bold;color: white;cursor:pointer; transition: 0.3s;}
+button:hover{opacity: 0.8;}
+.secondary{background:#222;color:var(--text);}
+table{width:100%;border-collapse:collapse;margin-top: 15px;}
+th,td{padding:10px;border-bottom:1px solid #2d333b;text-align:center;font-size:14px;}
+.win{color:#3fb950; font-weight: bold;} .loss{color:#f85149; font-weight: bold;}
+.summary{display:flex;justify-content:space-between;margin-top:15px;padding: 15px; background: #0b0f14; border-radius: 10px; border-left: 4px solid var(--accent);}
+
+/* تنسيق قسم الإحصائيات المطلوب نقله للأسفل */
+.stats-grid {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px; 
+    margin-top: 20px; /* مسافة فوق الإحصائيات */
+    font-size: 15px; 
+    background: #10141b; 
+    padding: 20px; 
+    border-radius: 12px;
+    border: 1px solid #2d333b;
+}
+.stats-grid div { display: flex; justify-content: space-between; }
+.win-rate-row { 
+    grid-column: span 2; 
+    text-align: center; 
+    border-top: 1px solid #2d333b; 
+    padding-top: 10px; 
+    display: block !important;
+}
+
+.stopMsg{margin-top:15px;font-weight:bold;text-align:center;color:#00ffa6;background: rgba(0,255,166,0.1); padding: 10px; border-radius: 8px; display:none}
+@media(max-width:900px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📊 Trading Pro Dashboard</h1>
+
+    <div class="grid">
+        <div class="card">
+            <label>المنصات المتوفرة</label>
+            <select id="platformInput">
+                <option>Pocket Option</option>
+                <option>Quotex</option>
+                <option>IQ Option</option>
+                <option>Expert Option</option>
+                <option>Binolla</option>
+            </select>
+
+            <label>زوج العملات / Asset</label>
+            <select id="assetInput">
+                <optgroup label="أزواج عادية"><option>EUR/USD</option><option>GBP/USD</option><option>USD/JPY</option></optgroup>
+                <optgroup label="أزواج OTC"><option>EUR/USD (OTC)</option><option>GBP/USD (OTC)</option></optgroup>
+            </select>
+
+            <label>نسبة ربح الزوج %</label>
+            <input type="number" id="payoutInput" value="92">
+            <label>رأس المال الابتدائي</label>
+            <input type="number" id="capitalInput" value="100">
+            <label>قيمة الصفقة الأولى</label>
+            <input type="number" id="baseInput" value="2">
+            <label>مضاعف الخسارة</label>
+            <input type="number" id="multInput" value="2">
+            <label>وقف الربح $</label>
+            <input type="number" id="tpInput" value="10">
+            <label>وقف الخسارة $</label>
+            <input type="number" id="slInput" value="8">
+
+            <button onclick="resetAll()">🔄 إعادة البدء</button>
+        </div>
+
+        <div class="card">
+            <div style="display: flex; gap: 10px;">
+                <button id="lossBtn" onclick="executeTrade('loss')" style="background: #f85149;">❌ خسارة</button>
+                <button id="winBtn" onclick="executeTrade('win')" style="background: #3fb950; color: white;">✅ ربح</button>
+            </div>
+
+            <div class="summary">
+                <div id="balanceLabel" style="font-weight: bold;">الرصيد: 100$</div>
+                <div id="nextTradeLabel" style="color: var(--accent);">الصفقة القادمة: 2$</div>
+            </div>
+
+            <div id="tableScroll" style="max-height: 350px; overflow-y: auto;">
+                <table>
+                    <thead>
+                        <tr><th>#</th><th>الوقت</th><th>النتيجة</th><th>المبلغ</th><th>الصافي</th><th>الرصيد</th></tr>
+                    </thead>
+                    <tbody id="rowsBody"></tbody>
+                </table>
+            </div>
+
+            <div class="stats-grid">
+                <div><span>إجمالي الربح:</span> <span id="statProfit" style="color: #00ffa6;">0$</span></div>
+                <div><span>عدد الصفقات:</span> <span id="statTotal">0</span></div>
+                <div><span>الصفقات الرابحة:</span> <span id="statWins" class="win">0</span></div>
+                <div><span>الصفقات الخاسرة:</span> <span id="statLosses" class="loss">0</span></div>
+                <div class="win-rate-row">نسبة الفوز: <span id="statRate">0%</span></div>
+            </div>
+
+            <div class="stopMsg" id="stopMessage">🎯 تم الوصول للهدف — تم إيقاف التداول</div>
+        </div>
+    </div>
+</div>
+
+<audio id="alertSound">
+    <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg">
+</audio>
+
+<script>
+let balance, nextValue, startBalance, wins = 0, losses = 0;
+
+function resetAll() {
+    startBalance = parseFloat(document.getElementById('capitalInput').value) || 100;
+    balance = startBalance;
+    nextValue = parseFloat(document.getElementById('baseInput').value) || 2;
+    wins = 0; losses = 0;
+    document.getElementById('rowsBody').innerHTML = "";
+    document.getElementById('lossBtn').disabled = false;
+    document.getElementById('winBtn').disabled = false;
+    document.getElementById('stopMessage').style.display = "none";
+    updateUI();
+}
+
+function executeTrade(result) {
+    let amount = nextValue;
+    let payout = (parseFloat(document.getElementById('payoutInput').value) || 82) / 100;
+    let net = 0;
+    let time = new Date().toLocaleTimeString('ar-EG', { hour12: false });
+
+    if (result === 'loss') {
+        net = -amount; balance += net;
+        nextValue *= (parseFloat(document.getElementById('multInput').value) || 2.2);
+        losses++;
+    } else {
+        net = amount * payout; balance += net;
+        nextValue = parseFloat(document.getElementById('baseInput').value) || 2;
+        wins++;
+    }
+
+    const rowHTML = `<tr><td>${wins+losses}</td><td>${time}</td><td class="${result}">${result==='win'?'ربح':'خسارة'}</td><td>${amount.toFixed(2)}$</td><td class="${result}">${net>0?'+':''}${net.toFixed(2)}$</td><td>${balance.toFixed(2)}$</td></tr>`;
+    document.getElementById('rowsBody').insertAdjacentHTML('beforeend', rowHTML);
+    updateUI();
+    checkLimits();
+}
+
+function updateUI() {
+    document.getElementById('balanceLabel').innerText = `الرصيد: ${balance.toFixed(2)}$`;
+    document.getElementById('nextTradeLabel').innerText = `الصفقة القادمة: ${nextValue.toFixed(2)}$`;
+    
+    // تحديث أرقام الإحصائيات في الأسفل
+    let total = wins + losses;
+    let totalProfit = balance - startBalance;
+    document.getElementById("statProfit").innerText = totalProfit.toFixed(2) + "$";
+    document.getElementById("statTotal").innerText = total;
+    document.getElementById("statWins").innerText = wins;
+    document.getElementById("statLosses").innerText = losses;
+    document.getElementById("statRate").innerText = (total ? ((wins / total) * 100).toFixed(1) : 0) + "%";
+}
+
+function checkLimits() {
+    let currentProfit = balance - startBalance;
+    let tp = parseFloat(document.getElementById('tpInput').value || 0);
+    let sl = parseFloat(document.getElementById('slInput').value || 0);
+    if (tp > 0 && currentProfit >= tp) finish("🎯 تم تحقيق هدف الربح!");
+    else if (sl > 0 && currentProfit <= -sl) finish("🛑 تم الوصول لحد الخسارة.");
+}
+
+function finish(msg) {
+    const msgBox = document.getElementById('stopMessage');
+    msgBox.innerText = msg; msgBox.style.display = "block";
+    document.getElementById('lossBtn').disabled = true;
+    document.getElementById('winBtn').disabled = true;
+    document.getElementById("alertSound").play();
+}
+
+resetAll();
+</script>
+</body>
+</html>
