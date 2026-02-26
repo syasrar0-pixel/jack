@@ -1,0 +1,202 @@
+{\rtf1\fbidis\ansi\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset178 Calibri;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil\fcharset1 Segoe UI Symbol;}{\f3\fnil Calibri;}{\f4\fnil\fcharset178{\*\fname Arial;}Arial (Arabic);}{\f5\fnil\fcharset0 Arial;}{\f6\fnil\fcharset1 Segoe UI Symbol;}}
+{\*\generator Riched20 6.3.9600}\viewkind4\uc1 
+\pard\rtlpar\sa200\sl276\slmult1\qr\f0\rtlch\fs22\lang1025 <!\f1\ltrch\lang1033 DOCTYPE html\f0\rtlch\lang1025 >\par
+<\f1\ltrch\lang1033 html lang="ar" dir="rtl\f0\rtlch\lang1025 ">\par
+<\f1\ltrch\lang1033 head\f0\rtlch\lang1025 >\par
+<\f1\ltrch\lang1033 meta charset="UTF-8\f0\rtlch\lang1025 ">\par
+<\f1\ltrch\lang1033 meta name="viewport" content="width=device-width, initial-scale=1.0\f0\rtlch\lang1025 ">\par
+<\f1\ltrch\lang1033 title>Trading Pro Dashboard - Live</title\f0\rtlch\lang1025 >\par
+\par
+<\f1\ltrch\lang1033 style\f0\rtlch\lang1025 >\par
+:\f1\ltrch\lang1033 root\f0\rtlch\lang1025\{\par
+ --\f1\ltrch\lang1033 bg:#0e1117;--card:#161b22;--accent:#00eaff;--text:#e6edf3;--muted:#8b949e\f0\rtlch\lang1025 ;\par
+\}\par
+\f1\ltrch\lang1033 body\{margin:0;background:var(--bg);color:var(--text);font-family: 'Segoe UI', Tahoma, sans-serif; line-height: 1.6;\}\f0\rtlch\lang1025\par
+.\f1\ltrch\lang1033 container\{max-width:1200px;margin:auto;padding:20px;\}\f0\rtlch\lang1025\par
+\f1\ltrch\lang1033 h1\{color:var(--accent);margin:0 0 15px; text-align: center; text-shadow: 0 0 10px rgba\f0\rtlch\lang1025 (\f1\ltrch\lang1033 0,234,255,0.3\f0\rtlch\lang1025 );\f1\ltrch\lang1033\}\f0\rtlch\lang1025\par
+.\f1\ltrch\lang1033 grid\{display:grid;grid-template-columns:1fr 2fr;gap:20px;\}\f0\rtlch\lang1025\par
+.\f1\ltrch\lang1033 card\{background:var(--card);border-radius:16px;padding:20px;box-shadow:0 10px 25px rgba(0,0,0,.4); display: flex; flex-direction: column; gap: 10px; border: 1px solid #30363d;\}\f0\rtlch\lang1025\par
+\f1\ltrch\lang1033 label\{font-size:13px;color:var(--muted);margin-bottom: -5px;\}\f0\rtlch\lang1025\par
+\f1\ltrch\lang1033 input, select\{width:100%;padding:10px;border-radius:10px;border:1px solid #30363d;background:#0b0f14;color:var(--text);box-sizing: border-box; outline: none; transition: 0.3s;\}\f0\rtlch\lang1025\par
+\f1\ltrch\lang1033 input:focus, select:focus\{border-color: var(--accent);\}\f0\rtlch\lang1025\par
+\f1\ltrch\lang1033 button\{padding:12px;border:none;border-radius:12px;width:100%;background:linear-gradient(135deg,#00eaff,#0077ff);font-size:16px;font-weight: bold;color: white;cursor:pointer; transition: 0.3s;\}\f0\rtlch\lang1025\par
+\f1\ltrch\lang1033 button:hover\{transform: translateY(-2px); box-shadow: 0 5px 15px rgba\f0\rtlch\lang1025 (\f1\ltrch\lang1033 0,234,255,0.3\f0\rtlch\lang1025 );\f1\ltrch\lang1033\}\f0\rtlch\lang1025\par
+\f1\ltrch\lang1033 button:disabled\{background: #444; cursor: not-allowed; transform: none;\}\f0\rtlch\lang1025\par
+.\f1\ltrch\lang1033 secondary\{background:#222;color:var(--text);\}\f0\rtlch\lang1025\par
+\f1\ltrch\lang1033 table\{width:100%;border-collapse:collapse;margin-top: 15px;\}\f0\rtlch\lang1025\par
+\f1\ltrch\lang1033 th,td\{padding:12px;border-bottom:1px solid #2d333b;text-align:center;font-size:14px;\}\f0\rtlch\lang1025\par
+\f1\ltrch\lang1033 th\{background: #1c2128; color: var(--muted);\}\f0\rtlch\lang1025\par
+.\f1\ltrch\lang1033 win\{color:#3fb950; font-weight: bold;\} .loss\{color:#f85149; font-weight: bold;\}\f0\rtlch\lang1025\par
+.\f1\ltrch\lang1033 summary\{display:flex;justify-content:space-between;margin-top:15px;padding: 15px; background: #0b0f14; border-radius: 10px; border-left: 4px solid var(--accent);\}\f0\rtlch\lang1025\par
+\par
+.\f1\ltrch\lang1033 stats-grid\f0\rtlch\lang1025  \{\par
+    \f1\ltrch\lang1033 display: grid\f0\rtlch\lang1025 ; \par
+    \f1\ltrch\lang1033 grid-template-columns: 1fr 1fr\f0\rtlch\lang1025 ; \par
+    \f1\ltrch\lang1033 gap: 15px\f0\rtlch\lang1025 ; \par
+    \f1\ltrch\lang1033 margin-top: 20px\f0\rtlch\lang1025 ; \par
+    \f1\ltrch\lang1033 font-size: 15px\f0\rtlch\lang1025 ; \par
+    \f1\ltrch\lang1033 background: #10141b\f0\rtlch\lang1025 ; \par
+    \f1\ltrch\lang1033 padding: 20px\f0\rtlch\lang1025 ; \par
+    \f1\ltrch\lang1033 border-radius: 12px\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 border: 1px solid #2d333b\f0\rtlch\lang1025 ;\par
+\}\par
+.\f1\ltrch\lang1033 stats-grid div \{ display: flex; justify-content: space-between; \}\f0\rtlch\lang1025\par
+.\f1\ltrch\lang1033 win-rate-row\f0\rtlch\lang1025  \{ \par
+    \f1\ltrch\lang1033 grid-column: span 2\f0\rtlch\lang1025 ; \par
+    \f1\ltrch\lang1033 text-align: center\f0\rtlch\lang1025 ; \par
+    \f1\ltrch\lang1033 border-top: 1px solid #2d333b\f0\rtlch\lang1025 ; \par
+    \f1\ltrch\lang1033 padding-top: 10px\f0\rtlch\lang1025 ; \par
+    \f1\ltrch\lang1033 display: block !important\f0\rtlch\lang1025 ;\par
+\}\par
+\par
+.\f1\ltrch\lang1033 stopMsg\{margin-top:15px;font-weight:bold;text-align:center;color:#00ffa6;background: rgba(0,255,166,0.1); padding: 15px; border-radius: 8px; display:none; border: 1px solid #00ffa6;\}\f0\rtlch\lang1025\par
+@\f1\ltrch\lang1033 media(max-width:900px)\{.grid\{grid-template-columns:1fr;\}\}\f0\rtlch\lang1025\par
+</\f1\ltrch\lang1033 style\f0\rtlch\lang1025 >\par
+</\f1\ltrch\lang1033 head\f0\rtlch\lang1025 >\par
+<\f1\ltrch\lang1033 body\f0\rtlch\lang1025 >\par
+\par
+<\f1\ltrch\lang1033 div class="container\f0\rtlch\lang1025 ">\par
+    <\f1\ltrch\lang1033 h1>\f2\u-10179?\u-9014?\f3  \f1 Trading Pro Dashboard</h1\f0\rtlch\lang1025 >\par
+\par
+    <\f1\ltrch\lang1033 div class="grid\f0\rtlch\lang1025 ">\par
+        <\f1\ltrch\lang1033 div class="card\f0\rtlch\lang1025 ">\par
+            <\f1\ltrch\lang1033 label\f0\rtlch\lang1025 >\f4\'c7\'e1\'e3\'e4\'d5\'c9</\f1\ltrch\lang1033 label\f0\rtlch\lang1025 >\par
+            <\f1\ltrch\lang1033 select id="platformInput\f0\rtlch\lang1025 ">\par
+                <\f1\ltrch\lang1033 option>Pocket Option</option\f0\rtlch\lang1025 >\par
+                <\f1\ltrch\lang1033 option>Quotex</option\f0\rtlch\lang1025 >\par
+                <\f1\ltrch\lang1033 option>IQ Option</option\f0\rtlch\lang1025 >\par
+                <\f1\ltrch\lang1033 option>Expert Option</option\f0\rtlch\lang1025 >\par
+                <\f1\ltrch\lang1033 option>Binolla</option\f0\rtlch\lang1025 >\par
+            </\f1\ltrch\lang1033 select\f0\rtlch\lang1025 >\par
+\par
+            <\f1\ltrch\lang1033 label\f0\rtlch\lang1025 >\f4\'c7\'e1\'c3\'d5\'e1 / \f1\ltrch\lang1033 Asset</label\f0\rtlch\lang1025 >\par
+            <\f1\ltrch\lang1033 select id="assetInput\f0\rtlch\lang1025 ">\par
+                <\f1\ltrch\lang1033 optgroup label\f0\rtlch\lang1025 ="\f4\'c3\'d2\'e6\'c7\'cc \'da\'c7\'cf\'ed\'c9"><\f1\ltrch\lang1033 option>EUR/USD</option><option>GBP/USD</option><option>USD/JPY</option></optgroup\f0\rtlch\lang1025 >\par
+                <\f1\ltrch\lang1033 optgroup label\f0\rtlch\lang1025 ="\f4\'c3\'d2\'e6\'c7\'cc \f1\ltrch\lang1033 OTC"><option>EUR/USD (OTC)</option><option>GBP/USD (OTC)</option></optgroup\f0\rtlch\lang1025 >\par
+            </\f1\ltrch\lang1033 select\f0\rtlch\lang1025 >\par
+\par
+            <\f1\ltrch\lang1033 label\f0\rtlch\lang1025 >\f4\'e4\'d3\'c8\'c9 \'c7\'e1\'d1\'c8\'cd %</\f1\ltrch\lang1033 label\f0\rtlch\lang1025 >\par
+            <\f1\ltrch\lang1033 input type="number" id="payoutInput" value="92\f0\rtlch\lang1025 ">\par
+            <\f1\ltrch\lang1033 label\f0\rtlch\lang1025 >\f4\'d1\'c3\'d3 \'c7\'e1\'e3\'c7\'e1 ($)</\f1\ltrch\lang1033 label\f0\rtlch\lang1025 >\par
+            <\f1\ltrch\lang1033 input type="number" id="capitalInput" value="100\f0\rtlch\lang1025 ">\par
+            <\f1\ltrch\lang1033 label\f0\rtlch\lang1025 >\f4\'c3\'e6\'e1 \'d5\'dd\'de\'c9 ($)</\f1\ltrch\lang1033 label\f0\rtlch\lang1025 >\par
+            <\f1\ltrch\lang1033 input type="number" id="baseInput" value="2\f0\rtlch\lang1025 ">\par
+            <\f1\ltrch\lang1033 label\f0\rtlch\lang1025 >\f4\'e3\'d6\'c7\'da\'dd \'c7\'e1\'ce\'d3\'c7\'d1\'c9</\f1\ltrch\lang1033 label\f0\rtlch\lang1025 >\par
+            <\f1\ltrch\lang1033 input type="number" id="multInput" value="2.2\f0\rtlch\lang1025 ">\par
+            <\f1\ltrch\lang1033 label\f0\rtlch\lang1025 >\f4\'e5\'cf\'dd \'c7\'e1\'d1\'c8\'cd \f5\ltrch\lang1033 (\f1 Take Profit)</label\f0\rtlch\lang1025 >\par
+            <\f1\ltrch\lang1033 input type="number" id="tpInput" value="10\f0\rtlch\lang1025 ">\par
+            <\f1\ltrch\lang1033 label\f0\rtlch\lang1025 >\f4\'cd\'cf \'c7\'e1\'ce\'d3\'c7\'d1\'c9 \f5\ltrch\lang1033 (\f1 Stop Loss)</label\f0\rtlch\lang1025 >\par
+            <\f1\ltrch\lang1033 input type="number" id="slInput" value="8\f0\rtlch\lang1025 ">\par
+\par
+            <\f1\ltrch\lang1033 button onclick="resetAll()" style="background: #30363d; margin-top: 10px\f0\rtlch\lang1025 ;">\f2\ltrch\lang1033\u-10179?\u-8956?\f3  \f4\rtlch\lang1025\'c5\'da\'c7\'cf\'c9 \'d6\'c8\'d8 \'c7\'e1\'c8\'ed\'c7\'e4\'c7\'ca</\f1\ltrch\lang1033 button\f0\rtlch\lang1025 >\par
+        </\f1\ltrch\lang1033 div\f0\rtlch\lang1025 >\par
+\par
+        <\f1\ltrch\lang1033 div class="card\f0\rtlch\lang1025 ">\par
+            <\f1\ltrch\lang1033 div style="display: flex; gap: 10px\f0\rtlch\lang1025 ;">\par
+                <\f1\ltrch\lang1033 button id="lossBtn" onclick="executeTrade('loss')" style="background: #f85149\f0\rtlch\lang1025 ;">\f6\ltrch\lang1033\u10060?\f3  \f4\rtlch\lang1025\'ce\'d3\'c7\'d1\'c9</\f1\ltrch\lang1033 button\f0\rtlch\lang1025 >\par
+                <\f1\ltrch\lang1033 button id="winBtn" onclick="executeTrade('win')" style="background: #3fb950\f0\rtlch\lang1025 ;">\f6\ltrch\lang1033\u9989?\f3  \f4\rtlch\lang1025\'d1\'c8\'cd</\f1\ltrch\lang1033 button\f0\rtlch\lang1025 >\par
+            </\f1\ltrch\lang1033 div\f0\rtlch\lang1025 >\par
+\par
+            <\f1\ltrch\lang1033 div class="summary\f0\rtlch\lang1025 ">\par
+                <\f1\ltrch\lang1033 div id="balanceLabel" style="font-weight: bold\f0\rtlch\lang1025 ;">\f4\'c7\'e1\'d1\'d5\'ed\'cf \'c7\'e1\'cd\'de\'ed\'de\'ed: \f5\ltrch\lang1033 100\f4\rtlch\lang1025 $</\f1\ltrch\lang1033 div\f0\rtlch\lang1025 >\par
+                <\f1\ltrch\lang1033 div id="nextTradeLabel" style="color: var(--accent)\f0\rtlch\lang1025 ;">\f4\'c7\'e1\'d5\'dd\'de\'c9 \'c7\'e1\'ca\'c7\'e1\'ed\'c9: \f5\ltrch\lang1033 2\f4\rtlch\lang1025 $</\f1\ltrch\lang1033 div\f0\rtlch\lang1025 >\par
+            </\f1\ltrch\lang1033 div\f0\rtlch\lang1025 >\par
+\par
+            <\f1\ltrch\lang1033 div id="tableScroll" style="max-height: 300px; overflow-y: auto; border: 1px solid #2d333b; border-radius: 8px; margin-top: 10px\f0\rtlch\lang1025 ;">\par
+                <\f1\ltrch\lang1033 table\f0\rtlch\lang1025 >\par
+                    <\f1\ltrch\lang1033 thead\f0\rtlch\lang1025 >\par
+                        <\f1\ltrch\lang1033 tr><th>#</th><th\f0\rtlch\lang1025 >\f4\'c7\'e1\'e6\'de\'ca</\f1\ltrch\lang1033 th><th\f0\rtlch\lang1025 >\f4\'c7\'e1\'e4\'ca\'ed\'cc\'c9</\f1\ltrch\lang1033 th><th\f0\rtlch\lang1025 >\f4\'c7\'e1\'e3\'c8\'e1\'db</\f1\ltrch\lang1033 th><th\f0\rtlch\lang1025 >\f4\'c7\'e1\'d5\'c7\'dd\'ed</\f1\ltrch\lang1033 th><th\f0\rtlch\lang1025 >\f4\'c7\'e1\'d1\'d5\'ed\'cf</\f1\ltrch\lang1033 th></tr\f0\rtlch\lang1025 >\par
+                    </\f1\ltrch\lang1033 thead\f0\rtlch\lang1025 >\par
+                    <\f1\ltrch\lang1033 tbody id="rowsBody"></tbody\f0\rtlch\lang1025 >\par
+                </\f1\ltrch\lang1033 table\f0\rtlch\lang1025 >\par
+            </\f1\ltrch\lang1033 div\f0\rtlch\lang1025 >\par
+\par
+            <\f1\ltrch\lang1033 div class="stats-grid\f0\rtlch\lang1025 ">\par
+                <\f1\ltrch\lang1033 div><span\f0\rtlch\lang1025 >\f4\'d5\'c7\'dd\'ed \'c7\'e1\'d1\'c8\'cd:</\f1\ltrch\lang1033 span> <span id="statProfit" style="color: #00ffa6;">0$</span></div\f0\rtlch\lang1025 >\par
+                <\f1\ltrch\lang1033 div><span\f0\rtlch\lang1025 >\f4\'c5\'cc\'e3\'c7\'e1\'ed \'c7\'e1\'d5\'dd\'de\'c7\'ca:</\f1\ltrch\lang1033 span> <span id="statTotal">0</span></div\f0\rtlch\lang1025 >\par
+                <\f1\ltrch\lang1033 div><span\f0\rtlch\lang1025 >\f4\'c7\'e1\'d1\'c7\'c8\'cd\'c9:</\f1\ltrch\lang1033 span> <span id="statWins" class="win">0</span></div\f0\rtlch\lang1025 >\par
+                <\f1\ltrch\lang1033 div><span\f0\rtlch\lang1025 >\f4\'c7\'e1\'ce\'c7\'d3\'d1\'c9:</\f1\ltrch\lang1033 span> <span id="statLosses" class="loss">0</span></div\f0\rtlch\lang1025 >\par
+                <\f1\ltrch\lang1033 div class="win-rate-row\f0\rtlch\lang1025 ">\f4\'cf\'de\'c9 \'c7\'e1\'ca\'cf\'c7\'e6\'e1 \f5\ltrch\lang1033 (\f1 Win Rate): <span id="statRate">0%</span></div\f0\rtlch\lang1025 >\par
+            </\f1\ltrch\lang1033 div\f0\rtlch\lang1025 >\par
+\par
+            <\f1\ltrch\lang1033 div class="stopMsg" id="stopMessage"></div\f0\rtlch\lang1025 >\par
+        </\f1\ltrch\lang1033 div\f0\rtlch\lang1025 >\par
+    </\f1\ltrch\lang1033 div\f0\rtlch\lang1025 >\par
+</\f1\ltrch\lang1033 div\f0\rtlch\lang1025 >\par
+\par
+<\f1\ltrch\lang1033 audio id="alertSound\f0\rtlch\lang1025 ">\par
+    <\f1\ltrch\lang1033 source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg\f0\rtlch\lang1025 ">\par
+</\f1\ltrch\lang1033 audio\f0\rtlch\lang1025 >\par
+\par
+<\f1\ltrch\lang1033 script\f0\rtlch\lang1025 >\par
+\f1\ltrch\lang1033 let balance, nextValue, startBalance, wins = 0, losses = 0\f0\rtlch\lang1025 ;\par
+\par
+\f1\ltrch\lang1033 function resetAll\f0\rtlch\lang1025 () \{\par
+    \f1\ltrch\lang1033 startBalance = parseFloat(document.getElementById('capitalInput').value) || 100\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 balance = startBalance\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 nextValue = parseFloat(document.getElementById('baseInput').value) || 2\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 wins = 0; losses = 0\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 document.getElementById('rowsBody').innerHTML\f0\rtlch\lang1025  = "";\par
+    \f1\ltrch\lang1033 document.getElementById('lossBtn').disabled = false\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 document.getElementById('winBtn').disabled = false\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 document.getElementById('stopMessage').style.display = "none\f0\rtlch\lang1025 ";\par
+    \f1\ltrch\lang1033 updateUI\f0\rtlch\lang1025 ();\par
+\}\par
+\par
+\f1\ltrch\lang1033 function executeTrade(result)\f0\rtlch\lang1025  \{\par
+    \f1\ltrch\lang1033 let amount = nextValue\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 let payout = (parseFloat(document.getElementById('payoutInput').value) || 82) / 100\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 let net = 0\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 let time = new Date().toLocaleTimeString('ar-EG', \{ hour12: false \})\f0\rtlch\lang1025 ;\par
+\par
+    \f1\ltrch\lang1033 if (result === 'loss')\f0\rtlch\lang1025  \{\par
+        \f1\ltrch\lang1033 net = -amount; balance += net\f0\rtlch\lang1025 ;\par
+        \f1\ltrch\lang1033 nextValue *= (parseFloat(document.getElementById('multInput').value) || 2.2)\f0\rtlch\lang1025 ;\par
+        \f1\ltrch\lang1033 losses\f0\rtlch\lang1025 ++;\par
+    \} \f1\ltrch\lang1033 else\f0\rtlch\lang1025  \{\par
+        \f1\ltrch\lang1033 net = amount * payout; balance += net\f0\rtlch\lang1025 ;\par
+        \f1\ltrch\lang1033 nextValue = parseFloat(document.getElementById('baseInput').value) || 2\f0\rtlch\lang1025 ;\par
+        \f1\ltrch\lang1033 wins\f0\rtlch\lang1025 ++;\par
+    \}\par
+\par
+    \f1\ltrch\lang1033 const rowHTML = `<tr><td>$\{wins+losses\}</td><td>$\{time\}</td><td class="$\{result\}\f0\rtlch\lang1025 ">$\{\f1\ltrch\lang1033 result==='win\f0\rtlch\lang1025 '?'\f4\'d1\'c8\'cd':'\'ce\'d3\'c7\'d1\'c9'\f0\}</\f1\ltrch\lang1033 td><td>$\{amount.toFixed\f0\rtlch\lang1025 (\f1\ltrch\lang1033 2\f0\rtlch\lang1025 )\f1\ltrch\lang1033\}$</td><td class="$\{result\}">$\{net>0?'+':''\}$\{net.toFixed\f0\rtlch\lang1025 (\f1\ltrch\lang1033 2\f0\rtlch\lang1025 )\f1\ltrch\lang1033\}$</td><td>$\{balance.toFixed\f0\rtlch\lang1025 (\f1\ltrch\lang1033 2\f0\rtlch\lang1025 )\f1\ltrch\lang1033\}$</td></tr\f0\rtlch\lang1025 >`;\par
+    \f1\ltrch\lang1033 document.getElementById('rowsBody').insertAdjacentHTML('afterbegin', rowHTML)\f0\rtlch\lang1025 ; // \f4\'c7\'e1\'c5\'d6\'c7\'dd\'c9 \'dd\'ed \'c7\'e1\'c3\'da\'e1\'ec\f0\par
+    \f1\ltrch\lang1033 updateUI\f0\rtlch\lang1025 ();\par
+    \f1\ltrch\lang1033 checkLimits\f0\rtlch\lang1025 ();\par
+\}\par
+\par
+\f1\ltrch\lang1033 function updateUI\f0\rtlch\lang1025 () \{\par
+    \f1\ltrch\lang1033 document.getElementById('balanceLabel').innerText\f0\rtlch\lang1025  = `\f4\'c7\'e1\'d1\'d5\'ed\'cf: $\f0\{\f1\ltrch\lang1033 balance.toFixed\f0\rtlch\lang1025 (\f1\ltrch\lang1033 2\f0\rtlch\lang1025 )\}$`;\par
+    \f1\ltrch\lang1033 document.getElementById('nextTradeLabel').innerText\f0\rtlch\lang1025  = `\f4\'c7\'e1\'d5\'dd\'de\'c9 \'c7\'e1\'de\'c7\'cf\'e3\'c9: $\f0\{\f1\ltrch\lang1033 nextValue.toFixed\f0\rtlch\lang1025 (\f1\ltrch\lang1033 2\f0\rtlch\lang1025 )\}$`;\par
+    \par
+    \f1\ltrch\lang1033 let total = wins + losses\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 let totalProfit = balance - startBalance\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 document.getElementById("statProfit").innerText = totalProfit.toFixed\f0\rtlch\lang1025 (\f1\ltrch\lang1033 2\f0\rtlch\lang1025 ) + "$";\par
+    \f1\ltrch\lang1033 document.getElementById("statTotal").innerText = total\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 document.getElementById("statWins").innerText = wins\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 document.getElementById("statLosses").innerText = losses\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 document.getElementById("statRate").innerText = (total ? ((wins / total) * 100).toFixed(1) : 0)\f0\rtlch\lang1025  + "%";\par
+\}\par
+\par
+\f1\ltrch\lang1033 function checkLimits\f0\rtlch\lang1025 () \{\par
+    \f1\ltrch\lang1033 let currentProfit = balance - startBalance\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 let tp = parseFloat(document.getElementById('tpInput').value || 0)\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 let sl = parseFloat(document.getElementById('slInput').value || 0)\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 if (tp > 0 && currentProfit >= tp) finish\f0\rtlch\lang1025 ("\f2\ltrch\lang1033\u-10180?\u-8273?\f3  \f4\rtlch\lang1025\'e3\'c8\'d1\'e6\'df! \'ca\'e3 \'ca\'cd\'de\'ed\'de \'e5\'cf\'dd \'c7\'e1\'d1\'c8\'cd \'c7\'e1\'ed\'e6\'e3\'ed.");\f0\par
+    \f1\ltrch\lang1033 else if (sl > 0 && currentProfit <= -sl) finish\f0\rtlch\lang1025 ("\f2\ltrch\lang1033\u-10179?\u-8495?\f0\rtlch\lang1025  \f4\'ca\'e4\'c8\'ed\'e5: \'ca\'e3 \'c7\'e1\'e6\'d5\'e6\'e1 \'e1\'cd\'cf \'c7\'e1\'ce\'d3\'c7\'d1\'c9 \'c7\'e1\'e3\'d3\'e3\'e6\'cd \'c8\'e5.");\f0\par
+\}\par
+\par
+\f1\ltrch\lang1033 function finish(msg)\f0\rtlch\lang1025  \{\par
+    \f1\ltrch\lang1033 const msgBox = document.getElementById('stopMessage')\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 msgBox.innerText = msg; msgBox.style.display = "block\f0\rtlch\lang1025 ";\par
+    \f1\ltrch\lang1033 document.getElementById('lossBtn').disabled = true\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 document.getElementById('winBtn').disabled = true\f0\rtlch\lang1025 ;\par
+    \f1\ltrch\lang1033 document.getElementById("alertSound").play\f0\rtlch\lang1025 ();\par
+\}\par
+\par
+\f1\ltrch\lang1033 resetAll\f0\rtlch\lang1025 ();\par
+</\f1\ltrch\lang1033 script\f0\rtlch\lang1025 >\par
+</\f1\ltrch\lang1033 body\f0\rtlch\lang1025 >\par
+</\f1\ltrch\lang1033 html\f0\rtlch\lang1025 >\par
+}
+ 
